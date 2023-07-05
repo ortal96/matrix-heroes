@@ -1,0 +1,21 @@
+.login-card {
+    max-width: 400px;
+    min-width: 350px;
+    display: flex;
+    justify-content: center;
+}
+.message {
+    margin-left: 20px;
+}
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-field {
+    width: 100%;
+}
+::ng-deep .mat-tooltip {
+    white-space: pre-line !important;
+}

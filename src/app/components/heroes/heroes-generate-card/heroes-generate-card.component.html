@@ -1,0 +1,59 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Create Hero</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+        <form [formGroup]=heroesCardForm autocomplete=off>
+            <p>
+                <mat-form-field class="form-field">
+                    <mat-label> Name: </mat-label>
+                    <input matInput type=text formControlName=name>
+                    <mat-error *ngIf="heroesCardForm.controls.name.errors?.required"> Name is required.</mat-error>
+
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field class="form-field">
+                    <mat-label> Ability: </mat-label>
+                    <mat-select formControlName=ability>
+                        <mat-option *ngFor="let abilityOption of abilityOptions" [value]="abilityOption">
+                            {{abilityOption}}
+                        </mat-option>
+
+                    </mat-select>
+                    <mat-error> Ability is required.
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field class="form-field">
+                    <mat-label> Suit Color: </mat-label>
+
+                    <input matInput type=text formControlName=suitColor>
+                    <mat-error> Suit Color is required.
+                    </mat-error>
+                </mat-form-field>
+                <input (colorPickerChange)="colorPickerChange($event)" [(colorPicker)]="suitColor"
+                    [style.background]="suitColor" />
+            </p>
+            <p>
+                <mat-form-field class="form-field">
+                    <mat-label> Starting Power: </mat-label>
+                    <input matInput type=number formControlName=startingPower>
+                    <mat-error> Starting Power is required.
+                    </mat-error>
+                </mat-form-field>
+            </p>
+        </form>
+    </mat-card-content>
+    <br>
+
+    <mat-card-footer>
+        <div mat-dialog-actions>
+            <button mat-button (click)=closeDialog()>Cancel</button>
+            <button [disabled]="!heroesCardForm.valid" mat-button (click)=submitCard()>Ok</button>
+        </div>
+        <mat-progress-bar *ngIf=submittedInProgress mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

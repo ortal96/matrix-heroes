@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!loading && !(heroesCards$ | async)?.length">
+        <p>You haven't created heroes yet</p>
+        <button (click)="createHero()" mat-raised-button color="primary">Create Hero</button>
+    </div>
+
+    <div *ngIf="!loading && (heroesCards$ | async)?.length">
+        <button (click)="createHero()" mat-raised-button color="primary">Create Hero</button>
+        <div class="hero-card-container">
+            <app-heroes-card [heroCard]="heroCard"
+                *ngFor="let heroCard of (heroesCards$ | async)! | sort: 'currentPower'"></app-heroes-card>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+.card {
+    max-width: 400px;
+    min-width: 300px;
+    margin: 20px;
+}
+.card-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-image {
+    background-image: url("../../../../assets/svg/Diversity-Avatars-Avatars-Batman.svg");
+    background-size: cover;
+}

@@ -1,0 +1,53 @@
+<mat-card class="card">
+    <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>{{ heroCard.name }}</mat-card-title>
+        <mat-card-subtitle>{{ heroCard.ability }}</mat-card-subtitle>
+    </mat-card-header>
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300pt" height="300pt"
+        viewBox="0 0 1280.000000 852.000000" preserveAspectRatio="xMidYMid meet">
+        <g transform="translate(0.000000,852.000000) scale(0.100000,-0.100000)" [attr.fill]=heroCard.suitColor
+            stroke="none">
+            <path d="M7580 8509 c-334 -35 -675 -172 -935 -375 -422 -329 -654 -820 -632
+-1338 8 -181 45 -355 112 -518 6 -15 1 -18 -31 -18 -124 0 -573 -68 -827 -125
+-583 -131 -1172 -354 -1730 -656 -200 -108 -379 -217 -672 -409 -263 -172
+-372 -239 -760 -463 -632 -365 -886 -524 -1153 -724 -494 -371 -853 -798 -933
+-1110 -32 -127 -22 -231 34 -336 54 -103 185 -203 332 -253 265 -89 691 -95
+1098 -14 122 24 169 38 378 106 194 63 272 76 364 63 196 -27 314 -185 440
+-584 141 -448 169 -526 225 -640 99 -202 199 -312 345 -382 119 -56 189 -66
+425 -58 113 3 213 8 222 11 10 3 37 -13 69 -42 117 -104 216 -144 353 -144
+159 0 344 71 555 214 60 40 121 76 137 80 16 4 78 23 138 42 383 124 688 341
+1046 745 159 179 237 257 325 320 52 38 224 139 236 139 31 0 43 -413 20 -665
+-26 -287 -31 -407 -21 -542 33 -436 192 -698 485 -799 70 -25 95 -28 205 -28
+194 -1 353 47 565 169 328 190 646 575 796 964 86 224 122 419 122 661 -1 181
+-9 248 -57 475 -112 525 7 982 379 1452 89 113 298 327 445 457 262 230 496
+402 1186 868 573 388 606 410 804 557 666 492 998 875 1102 1272 18 67 22 111
+22 219 -1 118 -4 145 -27 215 -149 452 -697 667 -1234 485 -191 -65 -378 -186
+-531 -344 -125 -130 -211 -253 -312 -447 -84 -161 -143 -243 -229 -313 -143
+-118 -336 -194 -606 -241 -101 -18 -367 -46 -373 -40 -2 2 5 43 17 92 34 150
+44 257 38 418 -7 171 -30 294 -83 446 -126 362 -378 674 -706 873 -349 212
+-770 308 -1168 265z" />
+        </g>
+    </svg>
+
+    <mat-card-content>
+
+        <br>
+        <div class="card-content">
+            <h3>Starting Power:</h3>
+            <button class="button-power" mat-mini-fab color="primary">
+                {{ heroCard.startingPower }}
+            </button>
+        </div>
+        <div class="card-content">
+            <h3>Current Power:</h3>
+            <button class="button-power" mat-mini-fab color="primary">
+                {{ heroCard.currentPower }}
+            </button>
+        </div>
+        <br>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="trainHero()" mat-raised-button>Train</button>
+    </mat-card-actions>
+</mat-card>
