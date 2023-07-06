@@ -18,6 +18,8 @@ export class HeroesGenerateCardComponent {
   suitColor: string = '#000000';
   heroesCardForm: FormGroup;
   abilityOptions: AbilityOptions[] = Object.values(AbilityOptions);
+  private readonly colorRegex = /^#([0-9A-Fa-f]{6})$/;
+
 
   constructor(
     public dialogRef: MatDialogRef<HeroesGenerateCardComponent>,
@@ -26,11 +28,11 @@ export class HeroesGenerateCardComponent {
     this.heroesCardForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       ability: new FormControl('', [Validators.required]),
-      suitColor: new FormControl('', [Validators.required]),
+      suitColor: new FormControl('', [Validators.required,Validators.pattern(this.colorRegex)]),
       startingPower: new FormControl('', [Validators.required, Validators.min(0)]),
     });
   }
-  
+
   public colorPickerChange(color: string): void {
     this.heroesCardForm.controls.suitColor.setValue(color);
   }

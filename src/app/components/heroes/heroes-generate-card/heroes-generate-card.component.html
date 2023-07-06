@@ -31,7 +31,10 @@
                     <mat-label> Suit Color: </mat-label>
 
                     <input matInput type=text formControlName=suitColor>
-                    <mat-error> Suit Color is required.
+                    <mat-error *ngIf="heroesCardForm.controls.suitColor.errors?.required"> Suit Color is required.
+                    </mat-error>
+                    <mat-error *ngIf="heroesCardForm.controls.suitColor.errors?.pattern">
+                      please check color from the color picker
                     </mat-error>
                 </mat-form-field>
                 <input (colorPickerChange)="colorPickerChange($event)" [(colorPicker)]="suitColor"
